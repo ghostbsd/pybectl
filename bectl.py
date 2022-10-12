@@ -40,6 +40,18 @@ def rename_be(origBeName, newBeName):
     assert bectl_process.returncode == 0
 
 
+def mount_be(BeName):
+    cmd_list = ['bectl', 'mount', BeName]
+    bectl_process = run(cmd_list)
+    assert bectl_process.returncode == 0
+
+
+def umount_be(BeName):
+    cmd_list = ['bectl', 'umount', BeName]
+    bectl_process = run(cmd_list)
+    assert bectl_process.returncode == 0
+
+
 def get_be_list():
     cmd_list = ['bectl', 'list']
     bectl_output = Popen(
