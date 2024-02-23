@@ -61,5 +61,6 @@ def get_be_list():
         universal_newlines=True,
         encoding='utf-8'
     )
-    bectl_list = bectl_output.stdout.read().splitlines().pop(0)
+    bectl_list = bectl_output.stdout.read().splitlines()
+    bectl_list.pop(0)
     return bectl_list
