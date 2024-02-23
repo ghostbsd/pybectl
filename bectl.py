@@ -54,13 +54,12 @@ def umount_be(BeName):
 
 def get_be_list():
     cmd_list = ['bectl', 'list']
-    bectl_output = Popen(
+    bectl_output: Popen[str] = Popen(
         cmd_list,
         stdout=PIPE,
         close_fds=True,
         universal_newlines=True,
         encoding='utf-8'
     )
-    bectl_list = list(set(bectl_output.stdout.read().splitlines()))
-    bectl_list.sort()
+    bectl_list = bectl_output.stdout.read().splitlines().pop(0)
     return bectl_list
