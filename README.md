@@ -1,2 +1,2 @@
 # pybectl
-GhostBSD bectl Python modual
+This our bectl Python module
