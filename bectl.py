@@ -64,12 +64,12 @@ def rename_be(original_be_name: str, new_be_name: str):
 
 def mount_be(be_name: str, path: str = None) -> str:
     """
-This function mounts the BE.
-:param be_name: Name of the BE to mount.
-:param path: The path where the BE will be mounted. If not provided,
-a bectl will create a random one.
-:return: The path where the BE is mounted.
-"""
+    This function mounts the BE.
+    :param be_name: Name of the BE to mount.
+    :param path: The path where the BE will be mounted. If not provided,
+    a bectl will create a random one.
+    :return: The path where the BE is mounted.
+    """
     cmd_list = ['bectl', 'mount', be_name]
     cmd_list.append(path) if path else None
     bectl_process = run(
