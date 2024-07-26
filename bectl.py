@@ -74,6 +74,7 @@ def mount_be(be_name: str, path: str = None) -> str:
     cmd_list.append(path) if path else None
     bectl_process = run(
         cmd_list,
+        stdout=PIPE,
         universal_newlines=True,
         encoding='utf-8'
     )
