@@ -5,7 +5,7 @@ from subprocess import Popen, run, PIPE
 
 def activate_be(be_name: str, t: bool = False):
     """
-    This function activate a BE.
+    This function activates a BE.
     :param be_name: Name of the BE to activate.
     :param t: If True, the BE will be activated even if it is mounted.
     """
@@ -19,24 +19,24 @@ def activate_be(be_name: str, t: bool = False):
 
 def create_be(new_be_name: str, non_active_be: str = None, recursive: bool = False):
     """
-    This function create a BE.
+    This function creates a BE.
     :param new_be_name: Name of the new BE.
-    :param non_active_be: Name of the non active BE.
+    :param non_active_be: Name of the non-active BE.
     :param recursive: If True, the BE will be created recursively.
     """
-    option = '-r' if recursive else ''
-    cmd_list = ['bectl', 'create', new_be_name]
+    cmd_list = ['bectl', 'create']
+    if recursive:
+        cmd_list.append('-r')
     if non_active_be is not None:
-        cmd_list.insert(2, f'-e {non_active_be}')
-    if option == '-r':
-        cmd_list.insert(2, option)
+        cmd_list.extend(['-e', non_active_be])
+    cmd_list.append(new_be_name)
     bectl_process = run(cmd_list)
     assert bectl_process.returncode == 0
 
 
 def destroy_be(be_name: str, F: bool = False, o: bool = False):
     """
-    This function destroy a BE.
+    This function destroys a BE.
     :param be_name: Name of the BE to destroy.
     :param F: If True, the BE will be destroyed even if it is active.
     :param o: If True, the BE will be destroyed even if it is mounted.
@@ -53,7 +53,7 @@ def destroy_be(be_name: str, F: bool = False, o: bool = False):
 
 def rename_be(original_be_name: str, new_be_name: str):
     """
-    This function rename a BE.
+    This function renames a BE.
     :param original_be_name: Name of the BE to rename.
     :param new_be_name: New name of the BE.
     """
@@ -94,7 +94,7 @@ def umount_be(be_name: str):
 
 def get_be_list() -> list:
     """
-    This function get the list of BEs.
+    This function gets the list of BEs.
     :return: A list of BEs.
     """
     cmd_list = ['bectl', 'list']

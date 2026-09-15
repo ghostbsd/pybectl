@@ -129,5 +129,5 @@ dmypy.json
 .pyre/
 
 .# Editor directories and files
- .vscode/
- .idea/
+.vscode/
+.idea/
