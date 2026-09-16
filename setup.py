@@ -3,7 +3,7 @@
 
 from setuptools import setup
 
-__VERSION__ = '0.6'
+__VERSION__ = '0.7'
 PROGRAM_VERSION = __VERSION__
 
 setup(
