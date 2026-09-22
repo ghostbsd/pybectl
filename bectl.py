@@ -84,7 +84,7 @@ def mount_be(be_name: str, path: str = None) -> str:
 
 def umount_be(be_name: str):
     """
-    This function unmount the BE.
+    This function unmounts the BE.
     :param be_name: Name of the BE to unmount.
     """
     cmd_list = ['bectl', 'umount', be_name]
@@ -112,7 +112,7 @@ def get_be_list() -> list:
 
 def is_file_system_zfs() -> bool:
     """
-    This function check if the file system is zfs.
+    This function checks if the file system is zfs.
     :return: True if the file system is zfs, False otherwise.
     """
     cmd_list = ['df', '-Tt', 'zfs', '/']

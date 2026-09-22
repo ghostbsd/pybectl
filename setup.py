@@ -12,7 +12,7 @@ setup(
     description="GhostBSD bectl Python module",
     license='BSD',
     author='Eric Turgeon',
-    url='https://github/GhostBSD/pybectl/',
+    url='https://github.com/GhostBSD/pybectl/',
     package_dir={'': '.'},
     install_requires=['setuptools'],
     py_modules=['bectl']
